@@ -24,9 +24,7 @@ export default function ProductCard({ name, title, id, price, image }) {
             <CardContent>
               {added ? (
                 <Tooltip title="Item Added to cart">
-                  <InfoIcon
-                    sx={{ color: "purple" }}
-                  />
+                  <InfoIcon sx={{ color: "purple" }} />
                 </Tooltip>
               ) : null}
               <Link to={`/products/${id}`}>
@@ -47,7 +45,9 @@ export default function ProductCard({ name, title, id, price, image }) {
                   disabled={added}
                   onClick={() => {
                     addToCart(id);
-                    toast.info("Item Added to cart");
+                    toast.info("Item Added to cart", {
+                      toastId: 8,
+                    });
                   }}
                   style={{
                     border: "2px solid purple",

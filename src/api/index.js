@@ -52,10 +52,11 @@ export const emailAlreadyExists = async (email) => {
   }
 };
 
+
 export const isAuthenticated = async () => {
   try {
     const res = await axios.get(
-      "https://api.escuelajs.co/api/v1/auth/profile",
+      "https://fakse-store-api.herokuapp.com/api/v1/auth/profile",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("user")}`,

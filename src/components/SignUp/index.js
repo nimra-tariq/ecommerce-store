@@ -44,13 +44,17 @@ export default function SignUp() {
     //creating user
     const resp = await emailAlreadyExists(email);
     console.log(resp, "isAva");
-    if (resp) {
+    if (!resp) {
       try {
         const resp = await createUser(name, email, password);
         if (resp === false) {
-          toast.error("error occured");
+          toast.error("error occured", {
+            toastId: 1,
+          });
         } else {
-          toast.success("sign up successfull");
+          toast.success("sign up successfull",{
+            toastId: 2,
+          });
           actions.resetForm();
           navigate("/SignIn");
         }
@@ -58,7 +62,9 @@ export default function SignUp() {
       } catch (error) {
         console.log(error, "error");
       }
-    } else toast.error("email already exists");
+    } else toast.error("email already exists",{
+      toastId: 3,
+    });
   };
 
   const formik = useFormik({
